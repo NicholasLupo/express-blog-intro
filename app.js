@@ -14,33 +14,41 @@ app.get('/', (req, res) => {
 
 const blogs = [
     {
-        titolo: 'Scoprire Express in 10 minuti',
-        contenuto: 'Una guida rapida per iniziare con Express.js, configurare un server semplice e creare le prime rotte.',
-        immagine: '/images/express-quickstart.jpg',
-        tags: ['Express', 'Node.js', 'Backend']
+        titolo: 'Ciambellone soffice',
+        contenuto: 'Ricetta del classico ciambellone soffice, perfetto per la colazione o la merenda con una tazza di latte.',
+        immagine: 'http://localhost:3000/images/ciambellone.jpeg',
+        tags: ['Dolce', 'Colazione', 'Ciambellone']
     },
     {
-        titolo: 'Come strutturare un blog con template',
-        contenuto: 'Consigli su come organizzare i file di un blog, utilizzare view engine e separare contenuto e logica.',
-        immagine: '/images/blog-structure.png',
-        tags: ['Blog', 'Template', 'Organizzazione']
+        titolo: 'Pasta alla barbabietola',
+        contenuto: 'Un primo piatto colorato e cremoso con crema di barbabietola e una spolverata di formaggio.',
+        immagine: 'http://localhost:3000/images/pasta_barbabietola.jpeg',
+        tags: ['Pasta', 'Barbabietola', 'Primo']
     },
     {
-        titolo: 'Middleware: cosa sono e come usarli',
-        contenuto: 'Esempi pratici per capire i middleware in Express, dalla gestione degli errori al parsing delle richieste.',
-        immagine: '/images/middleware.jpg',
-        tags: ['Middleware', 'Express', 'JavaScript']
+        titolo: 'Torta paesana rustica',
+        contenuto: 'Torta casalinga dalla consistenza rustica, perfetta per chi ama i sapori autentici e antichi.',
+        immagine: 'http://localhost:3000/images/torta_paesana.jpeg',
+        tags: ['Torta', 'Rustico', 'Dolce']
     },
     {
-        titolo: 'Creare una REST API semplice',
-        contenuto: 'Una guida per costruire endpoint GET e POST e servire dati JSON con Express.',
-        immagine: '/images/rest-api.png',
-        tags: ['API', 'REST', 'JSON']
+        titolo: 'Pane fritto dolce',
+        contenuto: 'Sfizio dolce con pane fritto, ideale per una merenda golosa o un fine pasto diverso dal solito.',
+        immagine: 'http://localhost:3000/images/pane_fritto_dolce.jpeg',
+        tags: ['Pane', 'Fritto', 'Dessert']
     },
     {
-        titolo: 'Deploy del blog su un server locale',
-        contenuto: 'Passaggi per distribuire la tua applicazione Node su un server locale e testarla con il browser.',
-        immagine: '/images/deploy-local.jpg',
-        tags: ['Deploy', 'Server', 'Test']
+        titolo: 'Cracker alla barbabietola',
+        contenuto: 'Snack salato e croccante perfetto per aperitivi, con un gusto delicato di barbabietola.',
+        immagine: 'http://localhost:3000/images/cracker_barbabietola.jpeg',
+        tags: ['Snack', 'Cracker', 'Salato']
     }
 ];
+
+app.use(express.static('public'))
+
+app.get('/bacheca', (req, res) => {
+
+    res.json(blogs)
+
+})
